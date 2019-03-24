@@ -15,6 +15,8 @@ void init() {
 	setState(5, 5, WHITE);
 	setState(5, 4, BLACK);
 	setState(4, 5, BLACK);
+	count(2, WHITE);
+	count(2, BLACK);
 }
 
 int getPos(const int x, const int y) {
@@ -48,8 +50,21 @@ void putState(const int x, const int y) {
 	}
 }
 
+int count(const int dif, const State state) {
+	static int cntBlk = 0, cntWht = 0;
+	if (state == BLACK) {
+		cntBlk += dif;
+		return cntBlk;
+	} else if (state == WHITE) {
+		cntWht += dif;
+		return cntWht;
+	}
+	return 0;
+}
+
 void display() {
 	int i, j;
+	printf(" Åú%2d          %2d         [Åõ%2d]\n", count(0, WHITE), 60, count(0, BLACK));
 	puts("+---+---+---+---+---+---+---+---+");
 	for (i = 1; i <= N; i++) {
 		for (j = 1; j <= N; j++) {

@@ -20,6 +20,7 @@ int getPos(const int x, const int y);
 void setState(const int x, const int y, const State state);
 State getState(const int x, const int y);
 void putState(const int x, const int y);
+int count(const int dif, const State state);
 void display();
 void quit();
 
